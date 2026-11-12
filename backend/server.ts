@@ -8,7 +8,7 @@ import Task from "./models/task";
 //Main variables
 const server: Express = express();
 const port: number = 3000;
-const MONGO_URL = process.env.MONGO_URL;
+const { MONGO_URL } = process.env;
 
 //Middleware
 server.use(express.urlencoded({ extended: true }));
@@ -61,6 +61,7 @@ server.post("/data", async (request, response) => {
   }
 });
 
+//PATCH a task using it's id and not mongoDB id
 server.patch("/data", async (request, response) => {
   const { id, title, checked } = request.body;
   try {
@@ -72,6 +73,7 @@ server.patch("/data", async (request, response) => {
   }
 });
 
+//DELETE a task using a id
 server.delete("/data/:id", async (request, response) => {
   const { id } = request.params;
   try {
