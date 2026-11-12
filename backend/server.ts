@@ -4,7 +4,6 @@ import mongoose from "mongoose";
 import cors from "cors";
 import "dotenv/config";
 import Task from "./models/task";
-import task from "./models/task";
 
 //Main variables
 const server: Express = express();
